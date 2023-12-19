@@ -128,31 +128,10 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			from components.java
-
-			pom {
-				name = "LambDynamicLights"
-				description = "Adds dynamic lights to the game."
-			}
 		}
 	}
 
 	repositories {
-		mavenLocal()
-		maven {
-			name = 'BuildDirLocal'
-			url = "${project.layout.buildDirectory.get()}/repo"
-		}
 
-		def ldlMaven = System.getenv('LDL_MAVEN')
-		if (ldlMaven) {
-			maven {
-				name = 'LambDynamicLightsMaven'
-				url = uri(ldlMaven)
-				credentials {
-					username = project.findProperty('gpr.user') ?: System.getenv('MAVEN_USERNAME')
-					password = project.findProperty('gpr.key') ?: System.getenv('MAVEN_PASSWORD')
-				}
-			}
-		}
 	}
 }
