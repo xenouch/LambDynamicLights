@@ -39,9 +39,9 @@ public abstract class WorldMixin {
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/world/chunk/BlockEntityTickInvoker;tick()V", shift = At.Shift.BEFORE),
 			locals = LocalCapture.CAPTURE_FAILEXCEPTION
 	)
-	private void onBlockEntityTick(CallbackInfo ci, Profiler profiler, Iterator<BlockEntity> iterator, BlockEntityTickInvoker blockEntityTickInvoker) {
+	private void onBlockEntityTick(CallbackInfo ci, Profiler profilerfiller, Iterator iterator, boolean flag, BlockEntityTickInvoker tickingblockentity) {
 		if (this.isClient() && LambDynLights.get().config.getBlockEntitiesLightSource().get()) {
-			var blockEntity = this.getBlockEntity(blockEntityTickInvoker.getPos());
+			var blockEntity = this.getBlockEntity(tickingblockentity.getPos());
 			if (blockEntity != null)
 				((DynamicLightSource) blockEntity).dynamicLightTick();
 		}
