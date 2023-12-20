@@ -83,9 +83,11 @@ public class LambDynLights {
 
 		this.config.load();
 
-		ResourceManager resourceManager = MinecraftClient.getInstance().getResourceManager();
-		if (resourceManager instanceof ReloadableResourceManager reloadableResourceManager) {
-			reloadableResourceManager.registerReloader((SynchronousResourceReloader) ItemLightSources::load);
+		if (FMLLoader.isProduction()) {
+			ResourceManager resourceManager = MinecraftClient.getInstance().getResourceManager();
+			if (resourceManager instanceof ReloadableResourceManager reloadableResourceManager) {
+				reloadableResourceManager.registerReloader((SynchronousResourceReloader) ItemLightSources::load);
+			}
 		}
 
 		ModList.get().getModContainerById(NAMESPACE).orElseThrow(RuntimeException::new).registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((client, screen) -> new SettingsScreen(screen)));
