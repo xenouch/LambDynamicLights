@@ -38,7 +38,6 @@ import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.client.ConfigScreenHandler;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.network.NetworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -83,7 +82,7 @@ public class LambDynLights {
 
 		this.config.load();
 
-		if (FMLLoader.isProduction()) {
+		if (MinecraftClient.getInstance() != null) {
 			ResourceManager resourceManager = MinecraftClient.getInstance().getResourceManager();
 			if (resourceManager instanceof ReloadableResourceManager reloadableResourceManager) {
 				reloadableResourceManager.registerReloader((SynchronousResourceReloader) ItemLightSources::load);
