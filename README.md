@@ -7,9 +7,9 @@
 [![GitHub license](https://img.shields.io/github/license/LambdAurora/LambDynamicLights?style=flat-square)](https://raw.githubusercontent.com/LambdAurora/LambDynamicLights/1.19/LICENSE)
 ![Environment: Client](https://img.shields.io/badge/environment-client-1976d2?style=flat-square)
 
-LambDynamicLights unofficial forge port.
+LambDynamicLights unofficial architectury port.
 
-A dynamic lights mod for MinecraftForge/NeoForge.
+A dynamic lights mod for Minecraft.
 
 <img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg">
 

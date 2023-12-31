@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "ryoamiclights",
+  "version": "${version}",
+  "name": "RyoamicLights",
+  "description": "LambDynamicLights unofficial architectury port.  Adds dynamic lights to the game.",
+  "authors": [
+    "TexTrue, ThinkingStudio, LambdAurora"
+  ],
+  "contact": {
+    "sources": "https://github.com/ThinkingStudios/LambDynamicLights-Forge"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.thinkingstudio.ryoamiclights.fabric.RyoamicLightsFabric"
+    ]
+  },
+  "mixins": [
+    "ryoamiclights.common.mixins.json",
+    "ryoamiclights.lightsource.mixins.json",
+    "ryoamiclights.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.2",
+    "architectury": "*"
+  }
+}

@@ -1,141 +1,45 @@
 plugins {
-	id 'dev.architectury.loom' version '1.4.+'
-	id 'java-library'
-	id 'maven-publish'
-	id 'com.modrinth.minotaur' version '2.+'
-	id 'net.darkhax.curseforgegradle' version '1.1.+'
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.4-SNAPSHOT" apply false
 }
 
-import com.modrinth.minotaur.dependencies.ModDependency
-import net.darkhax.curseforgegradle.TaskPublishCurseForge
-
-group = project.maven_group
-version = "${project.mod_version}+${project.minecraft_version}"
-base.archivesName = project.archives_base_name
-
-// This field defines the Java version your mod target.
-def targetJavaVersion = 17
-
-logger.lifecycle("Preparing version ${version}...")
-
-repositories {
-	mavenLocal()
-	mavenCentral()
-	maven {
-		name "Quilt"
-		url "https://maven.quiltmc.org/repository/release"
-	}
-	maven {
-		name 'Terraformers'
-		url 'https://maven.terraformersmc.com/releases/'
-	}
-	maven {
-		name 'Gegy'
-		url 'https://maven.gegy.dev'
-	}
-	maven {
-		name 'grondag'
-		url 'https://maven.dblsaiko.net/'
-	}
-	exclusiveContent {
-		forRepository {
-			maven {
-				name "Modrinth"
-				url "https://api.modrinth.com/maven"
-			}
-		}
-		filter {
-			includeGroup "maven.modrinth"
-		}
-	}
-	maven { url "https://maven.neoforged.net/releases/" }
+architectury {
+    minecraft = rootProject.minecraft_version
 }
 
-loom {
-	accessWidenerPath = file("src/main/resources/lambdynlights.accesswidener")
+subprojects {
+    apply plugin: "dev.architectury.loom"
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings "org.quiltmc:quilt-mappings:${project.quilt_mappings}:intermediary-v2"
+    }
 }
 
-dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${project.quilt_mappings}:intermediary-v2"
-	neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
 
-	modImplementation "maven.modrinth:obsidianui:${project.spruceui_version}"
+    archivesBaseName = rootProject.archives_base_name
+    version = rootProject.mod_version
+    group = rootProject.maven_group
 
-	modCompileOnly "maven.modrinth:embeddium:${project.sodium_version}"
-}
+    repositories {
+        maven { url = "https://maven.gegy.dev" }
+        maven { url = "https://api.modrinth.com/maven" }
+        maven {
+            name "Quilt"
+            url "https://maven.quiltmc.org/repository/release"
+        }
+    }
 
-java {
-	sourceCompatibility = JavaVersion.toVersion(targetJavaVersion)
-	targetCompatibility = JavaVersion.toVersion(targetJavaVersion)
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
 
-	withSourcesJar()
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = 'UTF-8'
-
-	it.options.release.set(targetJavaVersion)
-}
-
-processResources {
-	inputs.property 'version', project.version
-
-	filesMatching('META-INF/mods.toml') {
-		expand 'version': project.version
-	}
-}
-
-jar {
-	from('LICENSE') {
-		rename { "${it}_${base.archivesName}" }
-	}
-}
-
-modrinth {
-	token = System.getenv("MODRINTH_TOKEN")
-
-	projectId = "${project.modrinth_id}"
-	versionNumber = "${project.version}"
-	versionType = "alpha"
-	changelog = file("CHANGELOG.md").getText('UTF-8')
-	uploadFile = remapJar
-	additionalFiles = [sourcesJar]
-	gameVersions = ["1.20.3", "1.20.4"]
-	loaders = ["neoforge"]
-	dependencies {
-		required.project "obsidianui"
-	}
-}
-
-task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-	apiToken = System.getenv("CURSEFORGE_TOKEN")
-	disableVersionDetection()
-
-	def mainFile = upload(project.curseforge_id, remapJar)
-	mainFile.displayName = "${project.version}"
-	mainFile.releaseType = "alpha"
-	mainFile.changelog = file("CHANGELOG.md")
-	mainFile.changelogType = "markdown"
-	mainFile.addModLoader("NeoForge")
-	mainFile.addJavaVersion("Java 17", "Java 18")
-	mainFile.addGameVersion("1.20.3", "1.20.4")
-	mainFile.addRequirement("obsidianui")
-
-	def sourcesFile = mainFile.withAdditionalFile(sourcesJar)
-	sourcesFile.changelog = file("CHANGELOG.md")
-	sourcesFile.changelogType = "markdown"
-}
-
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	repositories {
-
-	}
+    java {
+        withSourcesJar()
+    }
 }

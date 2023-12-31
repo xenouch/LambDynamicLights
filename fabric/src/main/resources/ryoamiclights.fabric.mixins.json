@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "org.thinkingstudio.ryoamiclights.fabric.mixin",
+  "plugin": "org.thinkingstudio.ryoamiclights.fabric.RyoamicLightsFabricMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "fabricapi.AoCalculatorMixin"
+  ],
+  "mixins": [
+    "sodium.ArrayLightDataCacheMixin",
+    "sodium.FlatLightPipelineMixin",
+    "sodium.LightDataAccessMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
