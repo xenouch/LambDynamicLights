@@ -17,7 +17,7 @@ public class RyoamicLightsNeoForge {
     }
 
     public void onInitializeClient() {
-        RyoamicLights.get().clientInit();
+        new RyoamicLights().clientInit();
 
         NeoForge.EVENT_BUS.addListener(EventPriority.HIGHEST, RenderLevelStageEvent.class, event -> {
             if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_TRIPWIRE_BLOCKS) {

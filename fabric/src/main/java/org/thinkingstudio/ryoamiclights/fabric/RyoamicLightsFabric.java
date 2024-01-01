@@ -11,7 +11,7 @@ import org.thinkingstudio.ryoamiclights.api.DynamicLightsInitializer;
 public class RyoamicLightsFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        RyoamicLights.get().clientInit();
+        new RyoamicLights().clientInit();
 
         FabricLoader.getInstance().getEntrypointContainers("dynamiclights", DynamicLightsInitializer.class)
                 .stream().map(EntrypointContainer::getEntrypoint)
