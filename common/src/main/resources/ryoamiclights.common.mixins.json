@@ -10,7 +10,6 @@
     "EntityRendererMixin",
     "EntityTypeMixin",
     "MinecraftClientMixin",
-    "VideoOptionsScreenMixin",
     "WorldMixin",
     "lightsource.AbstractDecorationEntityMixin",
     "lightsource.AbstractMinecartEntityMixin",

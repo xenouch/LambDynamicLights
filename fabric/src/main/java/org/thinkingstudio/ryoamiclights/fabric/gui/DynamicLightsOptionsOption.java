@@ -7,7 +7,7 @@
  * see the LICENSE file.
  */
 
-package org.thinkingstudio.ryoamiclights.gui;
+package org.thinkingstudio.ryoamiclights.fabric.gui;
 
 import com.mojang.datafixers.util.Unit;
 import com.mojang.serialization.Codec;
@@ -18,6 +18,7 @@ import net.minecraft.client.gui.widget.button.ButtonWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.Option;
 import net.minecraft.text.Text;
+import org.thinkingstudio.ryoamiclights.gui.SettingsScreen;
 
 import java.util.Optional;
 import java.util.function.Consumer;

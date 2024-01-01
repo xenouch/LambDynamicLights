@@ -7,9 +7,8 @@
  * see the LICENSE file.
  */
 
-package org.thinkingstudio.ryoamiclights.mixin;
+package org.thinkingstudio.ryoamiclights.fabric.mixin;
 
-import org.thinkingstudio.ryoamiclights.gui.DynamicLightsOptionsOption;
 import dev.lambdaurora.spruceui.Tooltip;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
@@ -24,6 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.thinkingstudio.ryoamiclights.fabric.gui.DynamicLightsOptionsOption;
 
 @Mixin(VideoOptionsScreen.class)
 public class VideoOptionsScreenMixin extends GameOptionsScreen {
