@@ -12,7 +12,7 @@ Block entity dynamic lighting is non-recommended if avoidable with block states.
 
 If your entity re-implements tick without calling the super method the dynamic light handler will not work.
 
-## LambDynamicLights entrypoint
+## Entrypoint (Only Fabric Side)
 
 Any API calls should be done in the custom entrypoint.
 

@@ -59,7 +59,7 @@ public class RyoamicLights {
 	private long lastUpdate = System.currentTimeMillis();
 	private int lastUpdateCount = 0;
 
-	public void onInitializeClient() {
+	public void clientInit() {
 		INSTANCE = this;
 		this.log("Initializing RyoamicLights...");
 
@@ -67,8 +67,6 @@ public class RyoamicLights {
 
 		Platform.getMod(NAMESPACE).registerConfigurationScreen(SettingsScreen::new);
 		ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, (SynchronousResourceReloader) ItemLightSources::load);
-
-
 
 		DynamicLightHandlers.registerDefaultHandlers();
 	}
