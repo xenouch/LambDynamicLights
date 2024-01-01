@@ -4,12 +4,15 @@
   "plugin": "org.thinkingstudio.ryoamiclights.neoforge.RyoamicLightsNeoForgeMixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "fabricapi.AoCalculatorMixin"
-  ],
-  "mixins": [
+    "fabricapi.AoCalculatorMixin",
     "embeddium.ArrayLightDataCacheMixin",
     "embeddium.FlatLightPipelineMixin",
-    "embeddium.LightDataAccessMixin"
+    "embeddium.LightDataAccessMixin",
+    "ltr.LilTaterBlockEntityMixin",
+    "ltr.LilTaterBlocksMixin"
+  ],
+  "mixins": [
+
   ],
   "injectors": {
     "defaultRequire": 1

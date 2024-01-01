@@ -7,15 +7,15 @@
  * see the LICENSE file.
  */
 
-package org.thinkingstudio.ryoamiclights.mixin.ltr;
+package org.thinkingstudio.ryoamiclights.fabric.mixin.ltr;
 
-import org.thinkingstudio.ryoamiclights.util.LilTaterBlockEntityAccessor;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.gen.Accessor;
+import org.thinkingstudio.ryoamiclights.util.LilTaterBlockEntityAccessor;
 
 @Pseudo
 @Mixin(targets = "mods.ltr.entities.LilTaterBlockEntity")

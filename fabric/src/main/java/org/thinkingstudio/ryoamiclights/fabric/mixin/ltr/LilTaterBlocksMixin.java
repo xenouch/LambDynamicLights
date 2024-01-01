@@ -7,11 +7,8 @@
  * see the LICENSE file.
  */
 
-package org.thinkingstudio.ryoamiclights.mixin.ltr;
+package org.thinkingstudio.ryoamiclights.fabric.mixin.ltr;
 
-import org.thinkingstudio.ryoamiclights.RyoamicLights;
-import org.thinkingstudio.ryoamiclights.api.DynamicLightHandlers;
-import org.thinkingstudio.ryoamiclights.util.LilTaterBlockEntityAccessor;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Dynamic;
@@ -21,6 +18,9 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.thinkingstudio.ryoamiclights.RyoamicLights;
+import org.thinkingstudio.ryoamiclights.api.DynamicLightHandlers;
+import org.thinkingstudio.ryoamiclights.util.LilTaterBlockEntityAccessor;
 
 @Pseudo
 @Mixin(targets = "mods.ltr.registry.LilTaterBlocks", remap = false)

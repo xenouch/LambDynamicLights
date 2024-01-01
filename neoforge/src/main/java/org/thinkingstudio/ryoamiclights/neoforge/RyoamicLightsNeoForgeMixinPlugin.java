@@ -14,13 +14,17 @@ public class RyoamicLightsNeoForgeMixinPlugin implements IMixinConfigPlugin {
     private final Object2BooleanMap<String> conditionalMixins = new Object2BooleanOpenHashMap<>();
 
     public RyoamicLightsNeoForgeMixinPlugin() {
+        boolean ltrInstalled = RyoamicLightsCompat.isLilTaterReloadedInstalled();
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.neoforge.mixin.ltr.LilTaterBlocksMixin", ltrInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.neoforge.mixin.ltr.LilTaterBlockEntityMixin", ltrInstalled);
+
         boolean embeddiumInstalled = RyoamicLightsCompat.isEmbeddiumInstalled();
-        this.conditionalMixins.put("embeddium.mixin.org.thinkingstudio.ryoamiclights.neoforge.ArrayLightDataCacheMixin", embeddiumInstalled);
-        this.conditionalMixins.put("embeddium.mixin.org.thinkingstudio.ryoamiclights.neoforge.FlatLightPipelineMixin", embeddiumInstalled);
-        this.conditionalMixins.put("embeddium.mixin.org.thinkingstudio.ryoamiclights.neoforge.LightDataAccessMixin", embeddiumInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.neoforge.mixin.embeddium.ArrayLightDataCacheMixin", embeddiumInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.neoforge.mixin.embeddium.FlatLightPipelineMixin", embeddiumInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.neoforge.mixin.embeddium.LightDataAccessMixin", embeddiumInstalled);
 
         boolean forgifiedFabricApiInstalled = RyoamicLightsCompat.isForgifiedFabricApiInstalled();
-        this.conditionalMixins.put("fabricapi.mixin.org.thinkingstudio.ryoamiclights.neoforge.AoCalculatorMixin", forgifiedFabricApiInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.neoforge.mixin.fabricapi.AoCalculatorMixin", forgifiedFabricApiInstalled);
     }
 
     @Override

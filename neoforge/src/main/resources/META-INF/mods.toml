@@ -17,13 +17,10 @@ Adds dynamic lights to the game.
 '''
 
 [[mixins]]
-config = "ryoamiclights.mixins.json"
+config = "ryoamiclights.neoforge.mixins.json"
 
 [[mixins]]
 config = "ryoamiclights.common.mixins.json"
-
-[[mixins]]
-config = "ryoamiclights.lightsource.mixins.json"
 
 [[dependencies.ryoamiclights]]
 modId = "neoforge"

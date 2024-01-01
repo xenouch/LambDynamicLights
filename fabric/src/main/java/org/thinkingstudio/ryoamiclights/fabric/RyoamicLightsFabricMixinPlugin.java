@@ -14,13 +14,17 @@ public class RyoamicLightsFabricMixinPlugin  implements IMixinConfigPlugin {
     private final Object2BooleanMap<String> conditionalMixins = new Object2BooleanOpenHashMap<>();
 
     public RyoamicLightsFabricMixinPlugin() {
+        boolean ltrInstalled = RyoamicLightsCompat.isLilTaterReloadedInstalled();
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.fabric.mixin.ltr.LilTaterBlocksMixin", ltrInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.fabric.mixin.ltr.LilTaterBlockEntityMixin", ltrInstalled);
+
         boolean sodiumInstalled = RyoamicLightsCompat.isSodiumInstalled();
-        this.conditionalMixins.put("sodium.mixin.org.thinkingstudio.ryoamiclights.fabric.ArrayLightDataCacheMixin", sodiumInstalled);
-        this.conditionalMixins.put("sodium.mixin.org.thinkingstudio.ryoamiclights.fabric.FlatLightPipelineMixin", sodiumInstalled);
-        this.conditionalMixins.put("sodium.mixin.org.thinkingstudio.ryoamiclights.fabric.LightDataAccessMixin", sodiumInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.fabric.mixin.sodium.ArrayLightDataCacheMixin", sodiumInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.fabric.mixin.sodium.FlatLightPipelineMixin", sodiumInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.fabric.mixin.sodium.LightDataAccessMixin", sodiumInstalled);
 
         boolean fabricApiInstalled = RyoamicLightsCompat.isFabricApiInstalled();
-        this.conditionalMixins.put("fabricapi.mixin.org.thinkingstudio.ryoamiclights.fabric.AoCalculatorMixin", fabricApiInstalled);
+        this.conditionalMixins.put("org.thinkingstudio.ryoamiclights.fabric.mixin.fabricapi.AoCalculatorMixin", fabricApiInstalled);
     }
 
     @Override
