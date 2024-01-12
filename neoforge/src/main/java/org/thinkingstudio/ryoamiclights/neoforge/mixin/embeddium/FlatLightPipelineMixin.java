@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Pseudo
-@Mixin(targets = "me.jellysquid.mods.embeddium.client.model.light.flat.FlatLightPipeline", remap = false)
+@Mixin(targets = "me.jellysquid.mods.sodium.client.model.light.flat.FlatLightPipeline", remap = false)
 public abstract class FlatLightPipelineMixin {
 	@Dynamic
 	@Inject(
