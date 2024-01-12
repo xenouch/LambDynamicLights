@@ -43,7 +43,7 @@ processResources {
 shadowJar {
     exclude "architectury.common.json"
 
-    relocate 'com.electronwill.nightconfig', '${rootProject.maven_group}.shadow.nightconfig'
+    relocate "com.electronwill.nightconfig", "${rootProject.maven_group}.shadow.nightconfig"
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
