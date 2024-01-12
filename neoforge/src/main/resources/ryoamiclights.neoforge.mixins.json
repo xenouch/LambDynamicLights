@@ -11,9 +11,6 @@
     "ltr.LilTaterBlockEntityMixin",
     "ltr.LilTaterBlocksMixin"
   ],
-  "mixins": [
-
-  ],
   "injectors": {
     "defaultRequire": 1
   }

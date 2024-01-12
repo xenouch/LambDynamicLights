@@ -19,17 +19,8 @@ A dynamic lights mod for Minecraft.
 
 ## 📖 What's this mod?
 
-It's dark outside, extremely dark...
-You can't see a lot in the darkness, you wish you had a torch,
-or a lantern to hold and see in the light...
-
-And this is now possible with this mod as it adds dynamic lights to the game.
-You can see in the darkness thanks to your torch now!
-
 This mod adds dynamic lights to Minecraft. Dynamic lights are lights created by an entity holding an
 item which makes light as a block, or created by an entity on fire, etc.
-
-[Trailer](https://www.youtube.com/embed/r8r1TNG45tM?wmode=transparent)
 
 Searching other mods to replace OptiFine?
 [Check out this list!](https://lambdaurora.dev/optifine_alternatives)
@@ -89,10 +80,10 @@ Light emitted from items depend on the light emitted from their respective block
 
 Using this mod is very simple!
 
-Install it in your mods folder along with [ObsidianUI](https://modrinth.com/mod/obsidianui), (and [Embeddium](https://modrinth.com/mod/embeddium) if wanted for better performances).
+Install it in your mods folder along with [ObsidianUI](https://modrinth.com/mod/obsidianui), (and [Sodium (Fabric/Quilt)](https://modrinth.com/mod/sodium)/[Embeddium (Forge/NeoForge)](https://modrinth.com/mod/embeddium) if wanted for better performances).
 
 You will notice nothing at first but if you go into the video options or into the settings screen of the mod via Forge's Mod List, you will notice an option called Dynamic Lights which is by default off, choose the wanted configuration and enjoy!
-You can also configure the mod by editing the file in `config/lambdynlights.toml`.
+You can also configure the mod by editing the file in `config/ryoamiclights.toml`.
 
 ### Build
 
@@ -108,5 +99,5 @@ Check [this documentation](API.md).
 
 # 📖 Compatibility
 
-- [Embeddium](https://modrinth.com/mod/embeddium) is recommended for better performances.
-- **OptiFine/OptiForge is obviously incompatible.**
+- [Sodium (Fabric/Quilt)](https://modrinth.com/mod/sodium)/[Embeddium (Forge/NeoForge)](https://modrinth.com/mod/embeddium) is recommended for better performances.
+- **OptiFine/OptiForge/OptiFabric is obviously incompatible.**
