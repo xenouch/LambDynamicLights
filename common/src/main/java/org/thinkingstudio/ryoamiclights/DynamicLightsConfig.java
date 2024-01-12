@@ -11,10 +11,10 @@ package org.thinkingstudio.ryoamiclights;
 
 import com.electronwill.nightconfig.core.file.FileConfig;
 import dev.architectury.platform.Platform;
+import org.thinkingstudio.obsidianui.option.SpruceCyclingOption;
+import org.thinkingstudio.obsidianui.option.SpruceOption;
 import org.thinkingstudio.ryoamiclights.config.BooleanSettingEntry;
 import org.thinkingstudio.ryoamiclights.config.SettingEntry;
-import dev.lambdaurora.spruceui.option.SpruceCyclingOption;
-import dev.lambdaurora.spruceui.option.SpruceOption;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.text.Text;

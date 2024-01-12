@@ -10,12 +10,12 @@
 package org.thinkingstudio.ryoamiclights.config;
 
 import com.electronwill.nightconfig.core.Config;
-import dev.lambdaurora.spruceui.SpruceTexts;
-import dev.lambdaurora.spruceui.option.SpruceBooleanOption;
-import dev.lambdaurora.spruceui.option.SpruceOption;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.jetbrains.annotations.Nullable;
+import org.thinkingstudio.obsidianui.SpruceTexts;
+import org.thinkingstudio.obsidianui.option.SpruceBooleanOption;
+import org.thinkingstudio.obsidianui.option.SpruceOption;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

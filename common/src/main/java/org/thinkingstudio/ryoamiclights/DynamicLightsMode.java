@@ -9,11 +9,11 @@
 
 package org.thinkingstudio.ryoamiclights;
 
-import dev.lambdaurora.spruceui.SpruceTexts;
-import dev.lambdaurora.spruceui.util.Nameable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.jetbrains.annotations.NotNull;
+import org.thinkingstudio.obsidianui.SpruceTexts;
+import org.thinkingstudio.obsidianui.util.Nameable;
 
 import java.util.Arrays;
 import java.util.Optional;

@@ -9,11 +9,11 @@
 
 package org.thinkingstudio.ryoamiclights.gui;
 
-import dev.lambdaurora.spruceui.background.Background;
-import dev.lambdaurora.spruceui.background.DirtTexturedBackground;
-import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.GuiGraphics;
+import org.thinkingstudio.obsidianui.background.Background;
+import org.thinkingstudio.obsidianui.background.DirtTexturedBackground;
+import org.thinkingstudio.obsidianui.widget.SpruceWidget;
 
 public class InnerBackground implements Background {
 

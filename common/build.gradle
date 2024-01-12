@@ -16,6 +16,9 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
     modImplementation("maven.modrinth:obsidianui:${project.obsidianui_version}-fabric")
+
+    implementation 'com.electronwill.night-config:core:3.6.6'
+    implementation 'com.electronwill.night-config:toml:3.6.6'
 }
 
 publishing {
