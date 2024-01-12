@@ -9,7 +9,6 @@
 
 package org.thinkingstudio.ryoamiclights.fabric.mixin;
 
-import dev.lambdaurora.spruceui.Tooltip;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
@@ -23,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.thinkingstudio.obsidianui.Tooltip;
 import org.thinkingstudio.ryoamiclights.fabric.gui.DynamicLightsOptionsOption;
 
 @Mixin(VideoOptionsScreen.class)
