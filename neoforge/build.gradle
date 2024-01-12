@@ -11,6 +11,8 @@ loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 }
 
+project.archivesBaseName = rootProject.archivesBaseName + "-neoforge"
+
 repositories {
     maven { url "https://maven.neoforged.net/releases/" }
 }
