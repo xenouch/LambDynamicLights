@@ -43,7 +43,7 @@ versionRange = "*"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.ryoamiclights]]
 modId = "architectury"
 mandatory = true
 versionRange = "*"

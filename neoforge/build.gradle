@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
 }
 
 architectury {
@@ -26,7 +26,7 @@ configurations {
 dependencies {
     neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
-    modImplementation("maven.modrinth:obsidianui:${project.obsidianui_version}")
+    modImplementation("maven.modrinth:obsidianui:${project.obsidianui_version}-neoforge")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }

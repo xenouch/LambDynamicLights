@@ -1,3 +1,7 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
 architectury {
     common(rootProject.enabled_platforms.split(","))
 }
@@ -11,9 +15,7 @@ dependencies {
     // Do NOT use other classes from fabric loader
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
-    modImplementation("dev.lambdaurora:spruceui:${project.spruceui_version}")
-    implementation("com.electronwill.night-config:core:3.6.6")
-    implementation("com.electronwill.night-config:toml:3.6.6")
+    modImplementation("maven.modrinth:obsidianui:${project.obsidianui_version}-fabric")
 }
 
 publishing {

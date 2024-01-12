@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
 }
 
 architectury {
@@ -12,8 +12,6 @@ loom {
 }
 
 configurations {
-    shadow
-    api.extendsFrom shadow
     common
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
     compileClasspath.extendsFrom common
@@ -25,11 +23,10 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
-    modImplementation("dev.lambdaurora:spruceui:${project.spruceui_version}")
-    include("dev.lambdaurora:spruceui:${project.spruceui_version}")
+    modImplementation("maven.modrinth:obsidianui:${project.obsidianui_version}-fabric")
 
-    shadow 'com.electronwill.night-config:core:3.6.6'
-    shadow 'com.electronwill.night-config:toml:3.6.6'
+    shadowCommon 'com.electronwill.night-config:core:3.6.6'
+    shadowCommon 'com.electronwill.night-config:toml:3.6.6'
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
@@ -46,10 +43,10 @@ processResources {
 shadowJar {
     exclude "architectury.common.json"
 
+    relocate 'com.electronwill.nightconfig', '${rootProject.maven_group}.shadow.nightconfig'
+
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
-
-    relocate 'com.electronwill.nightconfig', 'dev.lambdaurora.lambdynlights.shadow.nightconfig'
 }
 
 remapJar {
