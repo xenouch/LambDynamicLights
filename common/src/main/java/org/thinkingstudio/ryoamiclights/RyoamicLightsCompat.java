@@ -72,6 +72,6 @@ public final class RyoamicLightsCompat {
 	 * @return {@code true} if Fabric API is installed, else {@code false}
 	 */
 	public static boolean isFabricApiInstalled() {
-		return Platform.isModLoaded("fabricapi-api");
+		return Platform.isModLoaded("fabric-api");
 	}
 }
