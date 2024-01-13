@@ -1,7 +1,8 @@
 /*
- * Copyright © 2023 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -22,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class LightDataAccessMixin {
 	@Dynamic
 	@Inject(method = "getLightmap", at = @At("RETURN"), remap = false, require = 0, cancellable = true)
-	private static void lambdynlights$getLightmap(int word, CallbackInfoReturnable<Integer> cir) {
+	private static void ryoamiclights$getLightmap(int word, CallbackInfoReturnable<Integer> cir) {
 		int lightmap = SodiumDynamicLightHandler.getLightmap(SodiumDynamicLightHandler.pos.get(), word, cir.getReturnValueI());
 		cir.setReturnValue(lightmap);
 	}

@@ -1,7 +1,8 @@
 /*
- * Copyright © 2021 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -22,13 +23,13 @@ import org.jetbrains.annotations.Nullable;
 @ApiStatus.Internal
 @ApiStatus.NonExtendable
 public interface DynamicLightHandlerHolder<T> {
-	@Nullable DynamicLightHandler<T> lambdynlights$getDynamicLightHandler();
+	@Nullable DynamicLightHandler<T> ryoamiclights$getDynamicLightHandler();
 
-	void lambdynlights$setDynamicLightHandler(DynamicLightHandler<T> handler);
+	void ryoamiclights$setDynamicLightHandler(DynamicLightHandler<T> handler);
 
-	LightSourceSettingEntry lambdynlights$getSetting();
+	LightSourceSettingEntry ryoamiclights$getSetting();
 
-	Text lambdynlights$getName();
+	Text ryoamiclights$getName();
 
 	@SuppressWarnings("unchecked")
 	static <T extends Entity> DynamicLightHandlerHolder<T> cast(EntityType<T> entityType) {

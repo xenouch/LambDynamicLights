@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -21,10 +22,10 @@ import org.thinkingstudio.ryoamiclights.util.LilTaterBlockEntityAccessor;
 @Mixin(targets = "mods.ltr.entities.LilTaterBlockEntity")
 public abstract class LilTaterBlockEntityMixin implements Inventory, LilTaterBlockEntityAccessor {
 	@Override
-	public boolean lambdynlights$isEmpty() {
+	public boolean ryoamiclights$isEmpty() {
 		return this.isEmpty();
 	}
 
 	@Accessor(value = "items", remap = false)
-	public abstract DefaultedList<ItemStack> lambdynlights$getItems();
+	public abstract DefaultedList<ItemStack> ryoamiclights$getItems();
 }

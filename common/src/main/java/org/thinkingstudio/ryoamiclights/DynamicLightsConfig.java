@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -49,38 +50,38 @@ public class DynamicLightsConfig {
 	private ExplosiveLightingMode creeperLightingMode;
 	private ExplosiveLightingMode tntLightingMode;
 
-	public final SpruceOption dynamicLightsModeOption = new SpruceCyclingOption("lambdynlights.option.mode",
+	public final SpruceOption dynamicLightsModeOption = new SpruceCyclingOption("ryoamiclights.option.mode",
 			amount -> this.setDynamicLightsMode(this.dynamicLightsMode.next()),
 			option -> option.getDisplayText(this.dynamicLightsMode.getTranslatedText()),
-			Text.translatable("lambdynlights.tooltip.mode.1")
+			Text.translatable("ryoamiclights.tooltip.mode.1")
 					.append(Text.literal("\n"))
-					.append(Text.translatable("lambdynlights.tooltip.mode.2", DynamicLightsMode.FASTEST.getTranslatedText(), DynamicLightsMode.FAST.getTranslatedText()))
+					.append(Text.translatable("ryoamiclights.tooltip.mode.2", DynamicLightsMode.FASTEST.getTranslatedText(), DynamicLightsMode.FAST.getTranslatedText()))
 					.append(Text.literal("\n"))
-					.append(Text.translatable("lambdynlights.tooltip.mode.3", DynamicLightsMode.FANCY.getTranslatedText())));
+					.append(Text.translatable("ryoamiclights.tooltip.mode.3", DynamicLightsMode.FANCY.getTranslatedText())));
 
 	public DynamicLightsConfig(@NotNull RyoamicLights mod) {
 		this.mod = mod;
 
-		this.config = FileConfig.builder(CONFIG_FILE_PATH).concurrent()/*.defaultResource("/lambdynlights.toml")*/.autosave().build();
+		this.config = FileConfig.builder(CONFIG_FILE_PATH).concurrent()/*.defaultResource("/ryoamiclights.toml")*/.autosave().build();
 		this.entitiesLightSource = new BooleanSettingEntry("light_sources.entities", DEFAULT_ENTITIES_LIGHT_SOURCE, this.config,
-				Text.translatable("lambdynlights.tooltip.entities"))
+				Text.translatable("ryoamiclights.tooltip.entities"))
 				.withOnSet(value -> {
 					if (!value) this.mod.removeEntitiesLightSource();
 				});
 		this.selfLightSource = new BooleanSettingEntry("light_sources.self", DEFAULT_SELF_LIGHT_SOURCE, this.config,
-				Text.translatable("lambdynlights.tooltip.self_light_source"))
+				Text.translatable("ryoamiclights.tooltip.self_light_source"))
 				.withOnSet(value -> {
 					if (!value) this.mod.removeLightSources(source ->
 							source instanceof ClientPlayerEntity && source == MinecraftClient.getInstance().player
 					);
 				});
 		this.blockEntitiesLightSource = new BooleanSettingEntry("light_sources.block_entities", DEFAULT_BLOCK_ENTITIES_LIGHT_SOURCE, this.config,
-				Text.translatable("lambdynlights.tooltip.block_entities"))
+				Text.translatable("ryoamiclights.tooltip.block_entities"))
 				.withOnSet(value -> {
 					if (!value) this.mod.removeBlockEntitiesLightSource();
 				});
 		this.waterSensitiveCheck = new BooleanSettingEntry("light_sources.water_sensitive_check", DEFAULT_WATER_SENSITIVE_CHECK, this.config,
-				Text.translatable("lambdynlights.tooltip.water_sensitive"));
+				Text.translatable("ryoamiclights.tooltip.water_sensitive"));
 	}
 
 	/**

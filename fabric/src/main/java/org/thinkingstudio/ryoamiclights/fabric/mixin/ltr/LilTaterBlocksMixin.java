@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -35,8 +36,8 @@ public class LilTaterBlocksMixin {
 	private static void onInit(CallbackInfo ci) {
 		DynamicLightHandlers.registerDynamicLightHandler(getLilTaterBlockEntity(), entity -> {
 			int luminance = 0;
-			if (!((LilTaterBlockEntityAccessor) entity).lambdynlights$isEmpty()) {
-				for (ItemStack item : ((LilTaterBlockEntityAccessor) entity).lambdynlights$getItems()) {
+			if (!((LilTaterBlockEntityAccessor) entity).ryoamiclights$isEmpty()) {
+				for (ItemStack item : ((LilTaterBlockEntityAccessor) entity).ryoamiclights$getItems()) {
 					luminance = Math.max(luminance, RyoamicLights.getLuminanceFromItemStack(item, !entity.getCachedState().getFluidState().isEmpty()));
 				}
 			}

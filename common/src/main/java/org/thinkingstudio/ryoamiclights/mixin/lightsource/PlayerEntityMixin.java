@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -26,41 +27,41 @@ public abstract class PlayerEntityMixin extends LivingEntity implements DynamicL
 	public abstract boolean isSpectator();
 
 	@Unique
-	protected int lambdynlights$luminance;
+	protected int ryoamiclights$luminance;
 	@Unique
-	private World lambdynlights$lastWorld;
+	private World ryoamiclights$lastWorld;
 
 	protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void ryoamicLights$dynamicLightTick() {
 		if (!DynamicLightHandlers.canLightUp(this)) {
-			this.lambdynlights$luminance = 0;
+			this.ryoamiclights$luminance = 0;
 			return;
 		}
 
 		if (this.isOnFire() || this.isGlowing()) {
-			this.lambdynlights$luminance = 15;
+			this.ryoamiclights$luminance = 15;
 		} else {
-			this.lambdynlights$luminance = Math.max(
+			this.ryoamiclights$luminance = Math.max(
 					DynamicLightHandlers.getLuminanceFrom(this),
 					RyoamicLights.getLivingEntityLuminanceFromItems(this)
 			);
 		}
 
 		if (this.isSpectator())
-			this.lambdynlights$luminance = 0;
+			this.ryoamiclights$luminance = 0;
 
-		if (this.lambdynlights$lastWorld != this.getWorld()) {
-			this.lambdynlights$lastWorld = this.getWorld();
-			this.lambdynlights$luminance = 0;
+		if (this.ryoamiclights$lastWorld != this.getWorld()) {
+			this.ryoamiclights$lastWorld = this.getWorld();
+			this.ryoamiclights$luminance = 0;
 		}
 	}
 
 	@Override
-	public int getLuminance() {
-		return this.lambdynlights$luminance;
+	public int ryoamicLights$getLuminance() {
+		return this.ryoamiclights$luminance;
 	}
 }

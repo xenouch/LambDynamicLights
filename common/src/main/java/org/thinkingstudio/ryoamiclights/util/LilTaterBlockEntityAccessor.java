@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -13,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 
 public interface LilTaterBlockEntityAccessor {
-	boolean lambdynlights$isEmpty();
+	boolean ryoamiclights$isEmpty();
 
-	DefaultedList<ItemStack> lambdynlights$getItems();
+	DefaultedList<ItemStack> ryoamiclights$getItems();
 }

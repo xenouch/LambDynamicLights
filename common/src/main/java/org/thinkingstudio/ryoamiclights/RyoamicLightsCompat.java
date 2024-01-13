@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -53,7 +54,7 @@ public final class RyoamicLightsCompat {
 	 * @return {@code true} if Sodium is installed, else {@code false}
 	 */
 	public static boolean isSodiumInstalled() {
-		return Platform.isModLoaded("embeddium");
+		return Platform.isModLoaded("sodium");
 	}
 
 

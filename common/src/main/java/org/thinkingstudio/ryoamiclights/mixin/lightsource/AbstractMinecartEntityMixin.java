@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -37,7 +38,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements Dyna
 	public abstract BlockState getContainedBlock();
 
 	@Unique
-	private int lambdynlights$luminance;
+	private int ryoamiclights$luminance;
 
 	public AbstractMinecartEntityMixin(EntityType<?> type, World world) {
 		super(type, world);
@@ -48,20 +49,20 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements Dyna
 		// We do not want to update the entity on the server.
 		if (this.getWorld().isClient()) {
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.ryoamicLights$setDynamicLightEnabled(false);
 			} else {
 				if (!RyoamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
-					this.lambdynlights$luminance = 0;
+					this.ryoamiclights$luminance = 0;
 				else
-					this.dynamicLightTick();
+					this.ryoamicLights$dynamicLightTick();
 				RyoamicLights.updateTracking(this);
 			}
 		}
 	}
 
 	@Override
-	public void dynamicLightTick() {
-		this.lambdynlights$luminance = Math.max(
+	public void ryoamicLights$dynamicLightTick() {
+		this.ryoamiclights$luminance = Math.max(
 				Math.max(
 						this.isOnFire() ? 15 : 0,
 						this.getContainedBlock().getLuminance()
@@ -71,7 +72,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements Dyna
 	}
 
 	@Override
-	public int getLuminance() {
-		return this.lambdynlights$luminance;
+	public int ryoamicLights$getLuminance() {
+		return this.ryoamiclights$luminance;
 	}
 }

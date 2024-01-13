@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -23,12 +24,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.thinkingstudio.obsidianui.Tooltip;
-import org.thinkingstudio.ryoamiclights.fabric.gui.DynamicLightsOptionsOption;
+import org.thinkingstudio.ryoamiclights.gui.DynamicLightsOptionsOption;
 
 @Mixin(VideoOptionsScreen.class)
 public class VideoOptionsScreenMixin extends GameOptionsScreen {
 	@Unique
-	private Option<?> lambdynlights$option;
+	private Option<?> ryoamiclights$option;
 
 	public VideoOptionsScreenMixin(Screen parent, GameOptions gameOptions, Text title) {
 		super(parent, gameOptions, title);
@@ -36,7 +37,7 @@ public class VideoOptionsScreenMixin extends GameOptionsScreen {
 
 	@Inject(method = "<init>", at = @At("TAIL"))
 	private void onConstruct(Screen parent, GameOptions gameOptions, CallbackInfo ci) {
-		this.lambdynlights$option = DynamicLightsOptionsOption.getOption(this);
+		this.ryoamiclights$option = DynamicLightsOptionsOption.getOption(this);
 	}
 
 	@ModifyArg(
@@ -50,7 +51,7 @@ public class VideoOptionsScreenMixin extends GameOptionsScreen {
 	private Option<?>[] addOptionButton(Option<?>[] old) {
 		var options = new Option<?>[old.length + 1];
 		System.arraycopy(old, 0, options, 0, old.length);
-		options[options.length - 1] = this.lambdynlights$option;
+		options[options.length - 1] = this.ryoamiclights$option;
 		return options;
 	}
 

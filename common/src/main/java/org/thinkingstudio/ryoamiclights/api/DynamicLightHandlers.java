@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -85,12 +86,12 @@ public final class DynamicLightHandlers {
 	}
 
 	private static <T> void register(DynamicLightHandlerHolder<T> holder, DynamicLightHandler<T> handler) {
-		var registeredHandler = holder.lambdynlights$getDynamicLightHandler();
+		var registeredHandler = holder.ryoamiclights$getDynamicLightHandler();
 		if (registeredHandler != null) {
 			DynamicLightHandler<T> newHandler = entity -> Math.max(registeredHandler.getLuminance(entity), handler.getLuminance(entity));
-			holder.lambdynlights$setDynamicLightHandler(newHandler);
+			holder.ryoamiclights$setDynamicLightHandler(newHandler);
 		} else {
-			holder.lambdynlights$setDynamicLightHandler(handler);
+			holder.ryoamiclights$setDynamicLightHandler(handler);
 		}
 	}
 
@@ -102,7 +103,7 @@ public final class DynamicLightHandlers {
 	 * @return the registered dynamic light handler
 	 */
 	public static <T extends Entity> @Nullable DynamicLightHandler<T> getDynamicLightHandler(EntityType<T> type) {
-		return DynamicLightHandlerHolder.cast(type).lambdynlights$getDynamicLightHandler();
+		return DynamicLightHandlerHolder.cast(type).ryoamiclights$getDynamicLightHandler();
 	}
 
 	/**
@@ -113,7 +114,7 @@ public final class DynamicLightHandlers {
 	 * @return the registered dynamic light handler
 	 */
 	public static <T extends BlockEntity> @Nullable DynamicLightHandler<T> getDynamicLightHandler(BlockEntityType<T> type) {
-		return DynamicLightHandlerHolder.cast(type).lambdynlights$getDynamicLightHandler();
+		return DynamicLightHandlerHolder.cast(type).ryoamiclights$getDynamicLightHandler();
 	}
 
 	/**
@@ -127,7 +128,7 @@ public final class DynamicLightHandlers {
 		if (entity == MinecraftClient.getInstance().player && !RyoamicLights.get().config.getSelfLightSource().get())
 			return false;
 
-		var setting = DynamicLightHandlerHolder.cast(entity.getType()).lambdynlights$getSetting();
+		var setting = DynamicLightHandlerHolder.cast(entity.getType()).ryoamiclights$getSetting();
 		return !(setting == null || !setting.get());
 	}
 
@@ -139,7 +140,7 @@ public final class DynamicLightHandlers {
 	 * @return {@code true} if the block entity can light up, otherwise {@code false}
 	 */
 	public static <T extends BlockEntity> boolean canLightUp(T entity) {
-		var setting = DynamicLightHandlerHolder.cast(entity.getType()).lambdynlights$getSetting();
+		var setting = DynamicLightHandlerHolder.cast(entity.getType()).ryoamiclights$getSetting();
 		return !(setting == null || !setting.get());
 	}
 

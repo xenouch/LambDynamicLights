@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -22,32 +23,32 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements DynamicLightSource {
 	@Unique
-	protected int lambdynlights$luminance;
+	protected int ryoamiclights$luminance;
 
 	public LivingEntityMixin(EntityType<?> type, World world) {
 		super(type, world);
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void ryoamicLights$dynamicLightTick() {
 		if (!RyoamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this)) {
-			this.lambdynlights$luminance = 0;
+			this.ryoamiclights$luminance = 0;
 			return;
 		}
 
 		if (this.isOnFire() || this.isGlowing()) {
-			this.lambdynlights$luminance = 15;
+			this.ryoamiclights$luminance = 15;
 		} else {
-			this.lambdynlights$luminance = RyoamicLights.getLivingEntityLuminanceFromItems((LivingEntity) (Object) this);
+			this.ryoamiclights$luminance = RyoamicLights.getLivingEntityLuminanceFromItems((LivingEntity) (Object) this);
 		}
 
 		int luminance = DynamicLightHandlers.getLuminanceFrom(this);
-		if (luminance > this.lambdynlights$luminance)
-			this.lambdynlights$luminance = luminance;
+		if (luminance > this.ryoamiclights$luminance)
+			this.ryoamiclights$luminance = luminance;
 	}
 
 	@Override
-	public int getLuminance() {
-		return this.lambdynlights$luminance;
+	public int ryoamicLights$getLuminance() {
+		return this.ryoamiclights$luminance;
 	}
 }

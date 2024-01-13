@@ -1,0 +1,19 @@
+{
+  "ryoamiclights.menu.light_sources": "Dynamische Licht Bronnen",
+  "ryoamiclights.menu.title": "RyoamicLights Instellingen",
+  "ryoamiclights.menu.canvas.1": "Dynamische entiteit lichten is niet aanbevolen in gebruik met Canvas!",
+  "ryoamiclights.menu.canvas.2": "Dynamische lichtbronnen met Canvas presteert momenteel heel zwaar!",
+  "ryoamiclights.menu.tabs.general": "Algemeen",
+  "ryoamiclights.option.light_sources.block_entities": "Blok Entiteiten",
+  "ryoamiclights.option.light_sources.entities": "Entiteiten",
+  "ryoamiclights.option.light_sources.water_sensitive_check": "Water Sensitiviteit Check",
+  "ryoamiclights.option.mode": "Dynamische Lichtbronnen",
+  "ryoamiclights.tooltip.block_entities": "Schakelt dynamische block entiteiten in.",
+  "ryoamiclights.tooltip.creeper_lighting": "Stelt de creeper lichtmodus in.\n- %s zet dynamische creeper lichtbronnen uit.\n- %s zet een constante lichtsterkte.\n- %s zet een dynamische lichtsterkte.",
+  "ryoamiclights.tooltip.entities": "Laat entiteiten dynamische lichtbronnen maken. Lot op: Spelers zijn altijd actief.",
+  "ryoamiclights.tooltip.mode.1": "Zet dynamische lichtbronnen aan. Wanneer aan maken spelers licht als ze een fakkel dragen bijvoorbeeld.",
+  "ryoamiclights.tooltip.mode.2": "%s en %s zullen langzamer reageren, maar licht updates zullen verminderd worden.",
+  "ryoamiclights.tooltip.mode.3": "%s is soepel dynamisch licht",
+  "ryoamiclights.tooltip.tnt_lighting": "Stelt de TNT lichtmodus in.\n- %s zet dynamische TNT lichtbronnen uit.\n- %s zet een constante lichtsterkte.\n- %s zet een dynamische lichtsterkte.",
+  "ryoamiclights.tooltip.water_sensitive": "Maakt licht water-sensitief. Dit betekent dat sommige objecten onder water geen licht geven."
+}

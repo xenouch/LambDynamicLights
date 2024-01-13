@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -32,12 +33,12 @@ public abstract class AbstractDecorationEntityMixin extends Entity implements Dy
 		// We do not want to update the entity on the server.
 		if (this.getWorld().isClient()) {
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.ryoamicLights$setDynamicLightEnabled(false);
 			} else {
 				if (!RyoamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
-					this.resetDynamicLight();
+					this.ryoamicLights$resetDynamicLight();
 				else
-					this.dynamicLightTick();
+					this.ryoamicLights$dynamicLightTick();
 				RyoamicLights.updateTracking(this);
 			}
 		}

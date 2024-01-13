@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -15,7 +16,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EntityType;
 
 /**
- * Represents the entrypoint for LambDynamicLights API.
+ * Represents the entrypoint for RyoamicLights API. (Only Fabric Side)
  *
  * @author LambdAurora
  * @version 1.3.2
@@ -23,7 +24,7 @@ import net.minecraft.entity.EntityType;
  */
 public interface DynamicLightsInitializer {
 	/**
-	 * Method called when LambDynamicLights is initialized to register custom dynamic light handlers and item light sources.
+	 * Method called when RyoamicLights is initialized to register custom dynamic light handlers and item light sources.
 	 *
 	 * @see DynamicLightHandlers#registerDynamicLightHandler(EntityType, DynamicLightHandler)
 	 * @see DynamicLightHandlers#registerDynamicLightHandler(BlockEntityType, DynamicLightHandler)

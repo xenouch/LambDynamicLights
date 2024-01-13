@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -32,7 +33,7 @@ public abstract class TntEntityMixin extends Entity implements DynamicLightSourc
 	@Unique
 	private int startFuseTimer = 80;
 	@Unique
-	private int lambdynlights$luminance;
+	private int ryoamiclights$luminance;
 
 	public TntEntityMixin(EntityType<?> type, World world) {
 		super(type, world);
@@ -51,34 +52,34 @@ public abstract class TntEntityMixin extends Entity implements DynamicLightSourc
 				return;
 
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.ryoamicLights$setDynamicLightEnabled(false);
 			} else {
 				if (!RyoamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
-					this.resetDynamicLight();
+					this.ryoamicLights$resetDynamicLight();
 				else
-					this.dynamicLightTick();
+					this.ryoamicLights$dynamicLightTick();
 				RyoamicLights.updateTracking(this);
 			}
 		}
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void ryoamicLights$dynamicLightTick() {
 		if (this.isOnFire()) {
-			this.lambdynlights$luminance = 15;
+			this.ryoamiclights$luminance = 15;
 		} else {
 			ExplosiveLightingMode lightingMode = RyoamicLights.get().config.getTntLightingMode();
 			if (lightingMode == ExplosiveLightingMode.FANCY) {
 				var fuse = this.getFuse() / this.startFuseTimer;
-				this.lambdynlights$luminance = (int) (-(fuse * fuse) * 10.0) + 10;
+				this.ryoamiclights$luminance = (int) (-(fuse * fuse) * 10.0) + 10;
 			} else {
-				this.lambdynlights$luminance = 10;
+				this.ryoamiclights$luminance = 10;
 			}
 		}
 	}
 
 	@Override
-	public int getLuminance() {
-		return this.lambdynlights$luminance;
+	public int ryoamicLights$getLuminance() {
+		return this.ryoamiclights$luminance;
 	}
 }

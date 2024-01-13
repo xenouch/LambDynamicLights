@@ -106,7 +106,7 @@ The format is simple:
 
 #### Examples
 
-##### `lambdynlights:dynamiclights/item/fire_charge.json`
+##### `ryoamiclights:dynamiclights/item/fire_charge.json`
 
 ```json
 {
@@ -116,7 +116,7 @@ The format is simple:
 }
 ```
 
-##### `lambdynlights:dynamiclights/item/lava_bucket.json`
+##### `ryoamiclights:dynamiclights/item/lava_bucket.json`
 
 ```json
 {
@@ -126,7 +126,7 @@ The format is simple:
 }
 ```
 
-##### `lambdynlights:dynamiclights/item/nether_star.json`
+##### `ryoamiclights:dynamiclights/item/nether_star.json`
 
 ```json
 {
@@ -135,7 +135,7 @@ The format is simple:
 }
 ```
 
-##### `lambdynlights:dynamiclights/item/torch.json`
+##### `ryoamiclights:dynamiclights/item/torch.json`
 
 ```json
 {

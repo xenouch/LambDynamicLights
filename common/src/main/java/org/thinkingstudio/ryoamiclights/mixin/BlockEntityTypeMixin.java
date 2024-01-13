@@ -1,7 +1,8 @@
 /*
- * Copyright © 2021 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -24,40 +25,40 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin<T extends BlockEntity> implements DynamicLightHandlerHolder<T> {
 	@Unique
-	private DynamicLightHandler<T> lambdynlights$lightHandler;
+	private DynamicLightHandler<T> ryoamiclights$lightHandler;
 	@Unique
-	private LightSourceSettingEntry lambdynlights$setting;
+	private LightSourceSettingEntry ryoamiclights$setting;
 
 	@Override
-	public @Nullable DynamicLightHandler<T> lambdynlights$getDynamicLightHandler() {
-		return this.lambdynlights$lightHandler;
+	public @Nullable DynamicLightHandler<T> ryoamiclights$getDynamicLightHandler() {
+		return this.ryoamiclights$lightHandler;
 	}
 
 	@Override
-	public void lambdynlights$setDynamicLightHandler(DynamicLightHandler<T> handler) {
-		this.lambdynlights$lightHandler = handler;
+	public void ryoamiclights$setDynamicLightHandler(DynamicLightHandler<T> handler) {
+		this.ryoamiclights$lightHandler = handler;
 	}
 
 	@Override
-	public LightSourceSettingEntry lambdynlights$getSetting() {
-		if (this.lambdynlights$setting == null) {
+	public LightSourceSettingEntry ryoamiclights$getSetting() {
+		if (this.ryoamiclights$setting == null) {
 			var self = (BlockEntityType<?>) (Object) this;
 			var id = Registries.BLOCK_ENTITY_TYPE.getId(self);
 			if (id == null) {
 				return null;
 			}
 
-			this.lambdynlights$setting = new LightSourceSettingEntry("light_sources.settings.block_entities."
+			this.ryoamiclights$setting = new LightSourceSettingEntry("light_sources.settings.block_entities."
 					+ id.getNamespace() + '.' + id.getPath().replace('/', '.'),
 					true, null, null);
-			RyoamicLights.get().config.load(this.lambdynlights$setting);
+			RyoamicLights.get().config.load(this.ryoamiclights$setting);
 		}
 
-		return this.lambdynlights$setting;
+		return this.ryoamiclights$setting;
 	}
 
 	@Override
-	public Text lambdynlights$getName() {
+	public Text ryoamiclights$getName() {
 		var self = (BlockEntityType<?>) (Object) this;
 		var id = Registries.BLOCK_ENTITY_TYPE.getId(self);
 		if (id == null) {

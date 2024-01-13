@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -60,31 +61,31 @@ public abstract class EntityMixin implements DynamicLightSource {
 	public abstract ChunkPos getChunkPos();
 
 	@Unique
-	protected int lambdynlights$luminance = 0;
+	protected int ryoamiclights$luminance = 0;
 	@Unique
-	private int lambdynlights$lastLuminance = 0;
+	private int ryoamiclights$lastLuminance = 0;
 	@Unique
-	private long lambdynlights$lastUpdate = 0;
+	private long ryoamiclights$lastUpdate = 0;
 	@Unique
-	private double lambdynlights$prevX;
+	private double ryoamiclights$prevX;
 	@Unique
-	private double lambdynlights$prevY;
+	private double ryoamiclights$prevY;
 	@Unique
-	private double lambdynlights$prevZ;
+	private double ryoamiclights$prevZ;
 	@Unique
-	private LongOpenHashSet lambdynlights$trackedLitChunkPos = new LongOpenHashSet();
+	private LongOpenHashSet ryoamiclights$trackedLitChunkPos = new LongOpenHashSet();
 
 	@Inject(method = "tick", at = @At("TAIL"))
 	public void onTick(CallbackInfo ci) {
 		// We do not want to update the entity on the server.
 		if (this.world.isClient()) {
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.ryoamicLights$setDynamicLightEnabled(false);
 			} else {
-				this.dynamicLightTick();
+				this.ryoamicLights$dynamicLightTick();
 				if ((!RyoamicLights.get().config.getEntitiesLightSource().get() && this.getType() != EntityType.PLAYER)
 						|| !DynamicLightHandlers.canLightUp((Entity) (Object) this))
-					this.lambdynlights$luminance = 0;
+					this.ryoamiclights$luminance = 0;
 				RyoamicLights.updateTracking(this);
 			}
 		}
@@ -93,79 +94,79 @@ public abstract class EntityMixin implements DynamicLightSource {
 	@Inject(method = "remove", at = @At("TAIL"))
 	public void onRemove(CallbackInfo ci) {
 		if (this.world.isClient())
-			this.setDynamicLightEnabled(false);
+			this.ryoamicLights$setDynamicLightEnabled(false);
 	}
 
 	@Override
-	public double getDynamicLightX() {
+	public double ryoamicLights$getDynamicLightX() {
 		return this.getX();
 	}
 
 	@Override
-	public double getDynamicLightY() {
+	public double ryoamicLights$getDynamicLightY() {
 		return this.getEyeY();
 	}
 
 	@Override
-	public double getDynamicLightZ() {
+	public double ryoamicLights$getDynamicLightZ() {
 		return this.getZ();
 	}
 
 	@Override
-	public World getDynamicLightWorld() {
+	public World ryoamicLights$getDynamicLightWorld() {
 		return this.world;
 	}
 
 	@Override
-	public void resetDynamicLight() {
-		this.lambdynlights$lastLuminance = 0;
+	public void ryoamicLights$resetDynamicLight() {
+		this.ryoamiclights$lastLuminance = 0;
 	}
 
 	@Override
-	public boolean shouldUpdateDynamicLight() {
+	public boolean ryoamicLights$shouldUpdateDynamicLight() {
 		var mode = RyoamicLights.get().config.getDynamicLightsMode();
 		if (!mode.isEnabled())
 			return false;
 		if (mode.hasDelay()) {
 			long currentTime = System.currentTimeMillis();
-			if (currentTime < this.lambdynlights$lastUpdate + mode.getDelay()) {
+			if (currentTime < this.ryoamiclights$lastUpdate + mode.getDelay()) {
 				return false;
 			}
 
-			this.lambdynlights$lastUpdate = currentTime;
+			this.ryoamiclights$lastUpdate = currentTime;
 		}
 		return true;
 	}
 
 	@Override
-	public void dynamicLightTick() {
-		this.lambdynlights$luminance = this.isOnFire() ? 15 : 0;
+	public void ryoamicLights$dynamicLightTick() {
+		this.ryoamiclights$luminance = this.isOnFire() ? 15 : 0;
 
 		int luminance = DynamicLightHandlers.getLuminanceFrom((Entity) (Object) this);
-		if (luminance > this.lambdynlights$luminance)
-			this.lambdynlights$luminance = luminance;
+		if (luminance > this.ryoamiclights$luminance)
+			this.ryoamiclights$luminance = luminance;
 	}
 
 	@Override
-	public int getLuminance() {
-		return this.lambdynlights$luminance;
+	public int ryoamicLights$getLuminance() {
+		return this.ryoamiclights$luminance;
 	}
 
 	@Override
-	public boolean lambdynlights$updateDynamicLight(@NotNull WorldRenderer renderer) {
-		if (!this.shouldUpdateDynamicLight())
+	public boolean ryoamiclights$updateDynamicLight(@NotNull WorldRenderer renderer) {
+		if (!this.ryoamicLights$shouldUpdateDynamicLight())
 			return false;
-		double deltaX = this.getX() - this.lambdynlights$prevX;
-		double deltaY = this.getY() - this.lambdynlights$prevY;
-		double deltaZ = this.getZ() - this.lambdynlights$prevZ;
+		double deltaX = this.getX() - this.ryoamiclights$prevX;
+		double deltaY = this.getY() - this.ryoamiclights$prevY;
+		double deltaZ = this.getZ() - this.ryoamiclights$prevZ;
 
-		int luminance = this.getLuminance();
+		int luminance = this.ryoamicLights$getLuminance();
 
-		if (Math.abs(deltaX) > 0.1D || Math.abs(deltaY) > 0.1D || Math.abs(deltaZ) > 0.1D || luminance != this.lambdynlights$lastLuminance) {
-			this.lambdynlights$prevX = this.getX();
-			this.lambdynlights$prevY = this.getY();
-			this.lambdynlights$prevZ = this.getZ();
-			this.lambdynlights$lastLuminance = luminance;
+		if (Math.abs(deltaX) > 0.1D || Math.abs(deltaY) > 0.1D || Math.abs(deltaZ) > 0.1D || luminance != this.ryoamiclights$lastLuminance) {
+			this.ryoamiclights$prevX = this.getX();
+			this.ryoamiclights$prevY = this.getY();
+			this.ryoamiclights$prevZ = this.getZ();
+			this.ryoamiclights$lastLuminance = luminance;
 
 			var newPos = new LongOpenHashSet();
 
@@ -174,7 +175,7 @@ public abstract class EntityMixin implements DynamicLightSource {
 				var chunkPos = new BlockPos.Mutable(entityChunkPos.x, ChunkSectionPos.getSectionCoord(this.getEyeY()), entityChunkPos.z);
 
 				RyoamicLights.scheduleChunkRebuild(renderer, chunkPos);
-				RyoamicLights.updateTrackedChunks(chunkPos, this.lambdynlights$trackedLitChunkPos, newPos);
+				RyoamicLights.updateTrackedChunks(chunkPos, this.ryoamiclights$trackedLitChunkPos, newPos);
 
 				var directionX = (this.getBlockPos().getX() & 15) >= 8 ? Direction.EAST : Direction.WEST;
 				var directionY = (MathHelper.floor(this.getEyeY()) & 15) >= 8 ? Direction.UP : Direction.DOWN;
@@ -192,23 +193,23 @@ public abstract class EntityMixin implements DynamicLightSource {
 						chunkPos.move(directionY); // Y
 					}
 					RyoamicLights.scheduleChunkRebuild(renderer, chunkPos);
-					RyoamicLights.updateTrackedChunks(chunkPos, this.lambdynlights$trackedLitChunkPos, newPos);
+					RyoamicLights.updateTrackedChunks(chunkPos, this.ryoamiclights$trackedLitChunkPos, newPos);
 				}
 			}
 
 			// Schedules the rebuild of removed chunks.
-			this.lambdynlights$scheduleTrackedChunksRebuild(renderer);
+			this.ryoamiclights$scheduleTrackedChunksRebuild(renderer);
 			// Update tracked lit chunks.
-			this.lambdynlights$trackedLitChunkPos = newPos;
+			this.ryoamiclights$trackedLitChunkPos = newPos;
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public void lambdynlights$scheduleTrackedChunksRebuild(@NotNull WorldRenderer renderer) {
+	public void ryoamiclights$scheduleTrackedChunksRebuild(@NotNull WorldRenderer renderer) {
 		if (MinecraftClient.getInstance().world == this.world)
-			for (long pos : this.lambdynlights$trackedLitChunkPos) {
+			for (long pos : this.ryoamiclights$trackedLitChunkPos) {
 				RyoamicLights.scheduleChunkRebuild(renderer, pos);
 			}
 	}

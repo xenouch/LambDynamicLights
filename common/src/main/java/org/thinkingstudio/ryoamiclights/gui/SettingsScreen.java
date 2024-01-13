@@ -1,7 +1,8 @@
 /*
- * Copyright © 2020 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -40,7 +41,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Represents the settings screen of LambDynamicLights.
+ * Represents the settings screen of RyoamicLights.
  *
  * @author LambdAurora
  * @version 2.2.0
@@ -48,7 +49,7 @@ import java.util.stream.Collectors;
  */
 public class SettingsScreen extends SpruceScreen {
 	private static final Background INNER_BACKGROUND = new InnerBackground();
-	private static final String DYNAMIC_LIGHT_SOURCES_KEY = "lambdynlights.menu.light_sources";
+	private static final String DYNAMIC_LIGHT_SOURCES_KEY = "ryoamiclights.menu.light_sources";
 	private final DynamicLightsConfig config;
 	private final Screen parent;
 	private final SpruceOption entitiesOption;
@@ -61,7 +62,7 @@ public class SettingsScreen extends SpruceScreen {
 	private SpruceTabbedWidget tabbedWidget;
 
 	public SettingsScreen(@Nullable Screen parent) {
-		super(Text.translatable("lambdynlights.menu.title"));
+		super(Text.translatable("ryoamiclights.menu.title"));
 		this.parent = parent;
 		this.config = RyoamicLights.get().config;
 
@@ -72,14 +73,14 @@ public class SettingsScreen extends SpruceScreen {
 		this.creeperLightingOption = new SpruceCyclingOption("entity.minecraft.creeper",
 				amount -> this.config.setCreeperLightingMode(this.config.getCreeperLightingMode().next()),
 				option -> option.getDisplayText(this.config.getCreeperLightingMode().getTranslatedText()),
-				Text.translatable("lambdynlights.tooltip.creeper_lighting",
+				Text.translatable("ryoamiclights.tooltip.creeper_lighting",
 						ExplosiveLightingMode.OFF.getTranslatedText(),
 						ExplosiveLightingMode.SIMPLE.getTranslatedText(),
 						ExplosiveLightingMode.FANCY.getTranslatedText()));
 		this.tntLightingOption = new SpruceCyclingOption("block.minecraft.tnt",
 				amount -> this.config.setTntLightingMode(this.config.getTntLightingMode().next()),
 				option -> option.getDisplayText(this.config.getTntLightingMode().getTranslatedText()),
-				Text.translatable("lambdynlights.tooltip.tnt_lighting",
+				Text.translatable("ryoamiclights.tooltip.tnt_lighting",
 						ExplosiveLightingMode.OFF.getTranslatedText(),
 						ExplosiveLightingMode.SIMPLE.getTranslatedText(),
 						ExplosiveLightingMode.FANCY.getTranslatedText()));
@@ -108,7 +109,7 @@ public class SettingsScreen extends SpruceScreen {
 
 		this.tabbedWidget = new SpruceTabbedWidget(Position.origin(), this.width, this.height, null, Math.max(100, this.width / 8), 0);
 		this.tabbedWidget.getList().setBackground(DirtTexturedBackground.DARKENED);
-		this.tabbedWidget.addTabEntry(Text.translatable("lambdynlights.menu.tabs.general"), null,
+		this.tabbedWidget.addTabEntry(Text.translatable("ryoamiclights.menu.tabs.general"), null,
 				this.tabContainerBuilder(this::buildGeneralTab));
 		this.tabbedWidget.addSeparatorEntry(null);
 		this.tabbedWidget.addTabEntry(Text.empty().append(dynamicLightSources).append(": ").append(this.entitiesOption.getPrefix()),
@@ -154,11 +155,11 @@ public class SettingsScreen extends SpruceScreen {
 
 		if (RyoamicLightsCompat.isCanvasInstalled()) {
 			var firstLine = new SpruceLabelWidget(Position.of(0, height - 29 - (5 + this.textRenderer.fontHeight) * 3),
-					Text.translatable("lambdynlights.menu.canvas.1"), width);
+					Text.translatable("ryoamiclights.menu.canvas.1"), width);
 			firstLine.setCentered(true);
 			container.addChild(firstLine);
 			label = new SpruceLabelWidget(Position.of(0, firstLine.getY() + firstLine.getHeight() + 5),
-					Text.translatable("lambdynlights.menu.canvas.2"), width);
+					Text.translatable("ryoamiclights.menu.canvas.2"), width);
 			label.setCentered(true);
 			container.addChild(label);
 		}

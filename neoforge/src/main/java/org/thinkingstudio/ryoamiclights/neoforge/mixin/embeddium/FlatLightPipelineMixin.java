@@ -1,7 +1,8 @@
 /*
- * Copyright © 2023 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -32,7 +33,7 @@ public abstract class FlatLightPipelineMixin {
 			locals = LocalCapture.CAPTURE_FAILHARD,
 			cancellable = true
 	)
-	private void lambdynlights$getLightmap(
+	private void ryoamiclights$getLightmap(
 			BlockPos pos, Direction face, CallbackInfoReturnable<Integer> cir,
 			int word, int adjWord
 	) {

@@ -1,7 +1,8 @@
 /*
- * Copyright © 2021 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -75,7 +76,7 @@ public abstract class SettingEntry<T> {
 	}
 
 	protected String getOptionKey() {
-		return "lambdynlights.option." + this.key();
+		return "ryoamiclights.option." + this.key();
 	}
 
 	protected abstract SpruceOption buildOption(@Nullable Text tooltip);

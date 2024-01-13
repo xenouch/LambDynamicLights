@@ -1,7 +1,8 @@
 /*
- * Copyright © 2021 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
@@ -47,7 +48,7 @@ public class LightSourceListWidget extends SpruceEntryListWidget<LightSourceList
 	 * @return the index of the added entry
 	 */
 	public int addEntry(DynamicLightHandlerHolder<?> holder) {
-		if (holder.lambdynlights$getSetting() != null) {
+		if (holder.ryoamiclights$getSetting() != null) {
 			var entry = LightSourceEntry.create(this, holder);
 			int index = this.addEntry(entry);
 			if (index % 2 != 0)
@@ -99,8 +100,8 @@ public class LightSourceListWidget extends SpruceEntryListWidget<LightSourceList
 
 		public static LightSourceEntry create(LightSourceListWidget parent, DynamicLightHandlerHolder<?> option) {
 			var entry = new LightSourceEntry(parent);
-			var setting = option.lambdynlights$getSetting();
-			entry.children.add(new SpruceLabelWidget(Position.of(entry, entry.getWidth() / 2 - 155, 7), option.lambdynlights$getName(), 175));
+			var setting = option.ryoamiclights$getSetting();
+			entry.children.add(new SpruceLabelWidget(Position.of(entry, entry.getWidth() / 2 - 155, 7), option.ryoamiclights$getName(), 175));
 			entry.children.add(setting.getOption().createWidget(Position.of(entry, entry.getWidth() / 2 + 60, 2), 75));
 			return entry;
 		}

@@ -1,13 +1,14 @@
 /*
- * Copyright © 2021 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2020~2024 LambdAurora <email@lambdaurora.dev>
+ * Copyright © 2024 ThinkingStudio
  *
- * This file is part of LambDynamicLights.
+ * This file is part of RyoamicLights.
  *
  * Licensed under the MIT license. For more information,
  * see the LICENSE file.
  */
 
-package org.thinkingstudio.ryoamiclights.fabric.gui;
+package org.thinkingstudio.ryoamiclights.gui;
 
 import com.mojang.datafixers.util.Unit;
 import com.mojang.serialization.Codec;
@@ -25,7 +26,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public final class DynamicLightsOptionsOption {
-	private static final String KEY = "lambdynlights.menu.title";
+	private static final String KEY = "ryoamiclights.menu.title";
 
 	public static Option<Unit> getOption(Screen parent) {
 		return new Option<>(
