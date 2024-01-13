@@ -1,2 +1,4 @@
 ## Changelog
-- move to architectury toolchain
+- `lambdynlights` -> `ryoamiclights`
+- new icon
+- fix sodium compat (fabric side)

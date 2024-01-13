@@ -3,12 +3,12 @@
   "id": "ryoamiclights",
   "version": "${version}",
   "name": "RyoamicLights",
-  "description": "LambDynamicLights unofficial architectury port.  Adds dynamic lights to the game.",
+  "description": "LambDynamicLights unofficial architectury port.\nAdds dynamic lights to the game.",
   "authors": [
     "TexTrue, ThinkingStudio, LambdAurora"
   ],
   "contact": {
-    "sources": "https://github.com/ThinkingStudios/LambDynamicLights-Forge"
+    "sources": "https://github.com/ThinkingStudios/RyoamicLights"
   },
   "license": "MIT",
   "icon": "icon.png",
