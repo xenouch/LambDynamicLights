@@ -4,10 +4,10 @@
 
 # RyoamicLights
 
-[![GitHub license](https://img.shields.io/github/license/LambdAurora/LambDynamicLights?style=flat-square)](https://raw.githubusercontent.com/LambdAurora/LambDynamicLights/1.19/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/ThinkingStudios/RyoamicLights?style=flat-square)](https://raw.githubusercontent.com/ThinkingStudios/RyoamicLights/1.20.4-architectury/LICENSE)
 ![Environment: Client](https://img.shields.io/badge/environment-client-1976d2?style=flat-square)
 
-LambDynamicLights unofficial architectury port.
+[LambDynamicLights](https://github.com/LambdAurora/LambDynamicLights) unofficial architectury port.
 
 A dynamic lights mod for Minecraft.
 
