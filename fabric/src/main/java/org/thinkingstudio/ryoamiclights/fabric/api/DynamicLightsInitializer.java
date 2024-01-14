@@ -8,15 +8,17 @@
  * see the LICENSE file.
  */
 
-package org.thinkingstudio.ryoamiclights.api;
+package org.thinkingstudio.ryoamiclights.fabric.api;
 
+import org.thinkingstudio.ryoamiclights.api.DynamicLightHandler;
+import org.thinkingstudio.ryoamiclights.api.DynamicLightHandlers;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSource;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EntityType;
 
 /**
- * Represents the entrypoint for RyoamicLights API. (Only Fabric Side)
+ * Represents the entrypoint for RyoamicLights API.
  *
  * @author LambdAurora
  * @version 1.3.2

@@ -16,9 +16,10 @@ import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
-import org.thinkingstudio.ryoamiclights.api.DynamicLightsInitializer;
+import org.thinkingstudio.ryoamiclights.api.DynamicLightHandlers;
+import org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer;
 
-public class RyoamicLightsFabric implements ClientModInitializer {
+public class RyoamicLightsFabric implements ClientModInitializer, DynamicLightsInitializer {
     @Override
     public void onInitializeClient() {
         new RyoamicLights().clientInit();
@@ -31,5 +32,10 @@ public class RyoamicLightsFabric implements ClientModInitializer {
             MinecraftClient.getInstance().getProfiler().swap("dynamic_lighting");
             RyoamicLights.get().updateAll(context.worldRenderer());
         });
+    }
+
+    @Override
+    public void onInitializeDynamicLights() {
+        DynamicLightHandlers.registerDefaultHandlers();
     }
 }

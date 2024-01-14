@@ -13,7 +13,6 @@ package org.thinkingstudio.ryoamiclights;
 import dev.architectury.platform.Platform;
 import dev.architectury.registry.ReloadListenerRegistry;
 import org.thinkingstudio.ryoamiclights.accessor.WorldRendererAccessor;
-import org.thinkingstudio.ryoamiclights.api.DynamicLightHandlers;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
 import org.thinkingstudio.ryoamiclights.gui.SettingsScreen;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
@@ -68,8 +67,6 @@ public class RyoamicLights {
 
 		Platform.getMod(NAMESPACE).registerConfigurationScreen(SettingsScreen::new);
 		ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, (SynchronousResourceReloader) ItemLightSources::load);
-
-		DynamicLightHandlers.registerDefaultHandlers();
 	}
 
 	/**
