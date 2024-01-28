@@ -66,7 +66,10 @@ public class RyoamicLights {
 		this.config.load();
 
 		Platform.getMod(NAMESPACE).registerConfigurationScreen(SettingsScreen::new);
-		ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, (SynchronousResourceReloader) ItemLightSources::load);
+
+		if (!RyoamicLightsExpectPlatform.isDevEnvironment()) {
+			ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, (SynchronousResourceReloader) ItemLightSources::load);
+		}
 	}
 
 	/**

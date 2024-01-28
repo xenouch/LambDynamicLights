@@ -1,4 +1,2 @@
 ## Changelog
-- `lambdynlights` -> `ryoamiclights`
-- new icon
-- fix sodium compat (fabric side)
+- try fix with dataGen (#12)
