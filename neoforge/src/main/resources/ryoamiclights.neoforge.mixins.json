@@ -9,8 +9,7 @@
     "embeddium.LightDataAccessMixin",
     "fabricapi.AoCalculatorMixin",
     "ltr.LilTaterBlockEntityMixin",
-    "ltr.LilTaterBlocksMixin",
-    "WorldRendererMixin"
+    "ltr.LilTaterBlocksMixin"
   ],
   "injectors": {
     "defaultRequire": 1
