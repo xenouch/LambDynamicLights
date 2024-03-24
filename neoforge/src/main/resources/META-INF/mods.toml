@@ -42,10 +42,3 @@ type = "required"
 versionRange = "*"
 ordering = "NONE"
 side = "BOTH"
-
-[[dependencies.ryoamiclights]]
-modId = "architectury"
-mandatory = true
-versionRange = "*"
-ordering = "AFTER"
-side = "BOTH"

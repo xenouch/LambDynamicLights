@@ -1,6 +1,9 @@
 package org.thinkingstudio.ryoamiclights.neoforge;
 
 import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.fml.loading.FMLPaths;
+
+import java.nio.file.Path;
 
 public class RyoamicLightsCompatImpl {
     public static boolean isCanvasInstalled() {
@@ -21,5 +24,9 @@ public class RyoamicLightsCompatImpl {
 
     public static boolean isDevEnvironment() {
         return !FMLLoader.isProduction();
+    }
+
+    public static Path getConfigDir() {
+        return FMLPaths.CONFIGDIR.get();
     }
 }
