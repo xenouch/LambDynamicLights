@@ -22,16 +22,19 @@ import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
-import org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer;
 
 public class RyoamicLightsFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         RyoamicLights.get().clientInit();
 
-        FabricLoader.getInstance().getEntrypointContainers("dynamiclights", DynamicLightsInitializer.class)
+        FabricLoader.getInstance().getEntrypointContainers("dynamiclights", org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer.class)
                 .stream().map(EntrypointContainer::getEntrypoint)
-                .forEach(DynamicLightsInitializer::onInitializeDynamicLights);
+                .forEach(org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer::onInitializeDynamicLights);
+
+        FabricLoader.getInstance().getEntrypointContainers("dynamiclights", dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer.class)
+                .stream().map(EntrypointContainer::getEntrypoint)
+                .forEach(dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer::onInitializeDynamicLights);
 
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SimpleSynchronousResourceReloadListener() {
             @Override

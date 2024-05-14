@@ -11,6 +11,7 @@
 package org.thinkingstudio.ryoamiclights.api.item;
 
 import com.google.gson.JsonObject;
+import net.minecraft.component.DataComponentTypes;
 import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -163,20 +164,22 @@ public abstract class ItemLightSource {
 		}
 
 		static int getLuminance(ItemStack stack, BlockState state) {
-			var nbt = stack.getNbt();
+			var nbt = stack.getComponents();
 
 			if (nbt != null) {
-				var blockStateTag = nbt.getCompound("BlockStateTag");
+				var blockStateTag = nbt.get(DataComponentTypes.BLOCK_STATE);
 				var stateManager = state.getBlock().getStateManager();
 
-				for (var key : blockStateTag.getKeys()) {
-					var property = stateManager.getProperty(key);
-					if (property != null) {
-						var value = blockStateTag.get(key).asString();
-						state = with(state, property, value);
-					}
-				}
-			}
+                if (blockStateTag != null) {
+                    for (var key : blockStateTag.properties().keySet()) {
+                        var property = stateManager.getProperty(key);
+                        if (property != null) {
+                            var value = blockStateTag.properties().get(key);
+                            state = with(state, property, value);
+                        }
+                    }
+                }
+            }
 
 			return state.getLuminance();
 		}
