@@ -25,6 +25,7 @@ import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
  * @version 1.3.2
  * @since 1.3.2
  */
+@Deprecated
 public interface DynamicLightsInitializer {
 	/**
 	 * Method called when RyoamicLights is initialized to register custom dynamic light handlers and item light sources.
