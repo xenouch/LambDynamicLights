@@ -16,7 +16,10 @@ subprojects {
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-        mappings "org.quiltmc:quilt-mappings:${project.quilt_mappings}:intermediary-v2"
+        mappings loom.layered {
+            mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+            mappings "dev.architectury:yarn-mappings-patch-neoforge:1.20.5+build.3"
+        }
     }
 }
 
@@ -42,6 +45,9 @@ allprojects {
     }
 
     java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+
         withSourcesJar()
     }
 }

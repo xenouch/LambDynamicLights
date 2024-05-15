@@ -418,7 +418,7 @@ public class RyoamicLights {
 			return false;
 		}
 
-		var eyePos = BlockPos.create(entity.getX(), entity.getEyeY(), entity.getZ());
+		var eyePos = BlockPos.ofFloored(entity.getX(), entity.getEyeY(), entity.getZ());
 		return !entity.getWorld().getFluidState(eyePos).isEmpty();
 	}
 

@@ -1,3 +1,2 @@
 ## Changelog
-- remove the mixin for embeddium (only forge)
-- remove architectury dependency
+- port to 1.20.5
