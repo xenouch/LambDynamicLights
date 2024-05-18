@@ -9,10 +9,6 @@ public class ModPlatformImpl {
         return FabricLoader.getInstance().isModLoaded(modid);
     }
 
-    public static boolean isDevEnvironment() {
-        return FabricLoader.getInstance().isDevelopmentEnvironment();
-    }
-
     public static Path getConfigDir() {
         return FabricLoader.getInstance().getConfigDir();
     }

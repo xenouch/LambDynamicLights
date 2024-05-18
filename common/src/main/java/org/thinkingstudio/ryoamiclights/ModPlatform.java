@@ -11,11 +11,6 @@ public class ModPlatform {
     }
 
     @ExpectPlatform
-    public static boolean isDevEnvironment() {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
     public static Path getConfigDir() {
         throw new AssertionError();
     }

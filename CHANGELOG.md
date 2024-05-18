@@ -1,2 +1,3 @@
 ## Changelog
-- port to 1.20.6
+- code clean
+- (NeoForge) Fix register events issue (#24)

@@ -29,6 +29,7 @@ import org.thinkingstudio.ryoamiclights.neoforge.api.DynamicLightsInitializerEve
 @Mod(RyoamicLights.NAMESPACE)
 public class RyoamicLightsNeoForge {
     public RyoamicLightsNeoForge(IEventBus modEventBus) {
+        IEventBus forgeEventBus = NeoForge.EVENT_BUS;
         ModLoadingContext context = ModLoadingContext.get();
 
         if (FMLLoader.getDist().isClient()) {
@@ -36,7 +37,7 @@ public class RyoamicLightsNeoForge {
 
             context.registerExtensionPoint(IConfigScreenFactory.class, () -> (client, screen) -> new SettingsScreen(screen));
 
-            modEventBus.addListener(EventPriority.HIGHEST, RenderLevelStageEvent.class, event -> {
+            forgeEventBus.addListener(EventPriority.HIGHEST, RenderLevelStageEvent.class, event -> {
                 if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_TRIPWIRE_BLOCKS) {
                     MinecraftClient.getInstance().getProfiler().swap("dynamic_lighting");
                     RyoamicLights.get().updateAll(event.getLevelRenderer());
