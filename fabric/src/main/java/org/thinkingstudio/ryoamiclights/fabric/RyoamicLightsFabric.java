@@ -10,6 +10,7 @@
 
 package org.thinkingstudio.ryoamiclights.fabric;
 
+import dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
@@ -28,13 +29,9 @@ public class RyoamicLightsFabric implements ClientModInitializer {
     public void onInitializeClient() {
         RyoamicLights.get().clientInit();
 
-        FabricLoader.getInstance().getEntrypointContainers("dynamiclights", org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer.class)
+        FabricLoader.getInstance().getEntrypointContainers("dynamiclights", DynamicLightsInitializer.class)
                 .stream().map(EntrypointContainer::getEntrypoint)
-                .forEach(org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer::onInitializeDynamicLights);
-
-        FabricLoader.getInstance().getEntrypointContainers("dynamiclights", dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer.class)
-                .stream().map(EntrypointContainer::getEntrypoint)
-                .forEach(dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer::onInitializeDynamicLights);
+                .forEach(DynamicLightsInitializer::onInitializeDynamicLights);
 
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SimpleSynchronousResourceReloadListener() {
             @Override

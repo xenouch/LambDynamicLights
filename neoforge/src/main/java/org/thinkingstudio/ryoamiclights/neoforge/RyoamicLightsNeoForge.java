@@ -24,7 +24,6 @@ import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import net.neoforged.fml.common.Mod;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
 import org.thinkingstudio.ryoamiclights.gui.SettingsScreen;
-import org.thinkingstudio.ryoamiclights.neoforge.api.DynamicLightsInitializerEvent;
 
 @Mod(RyoamicLights.NAMESPACE)
 public class RyoamicLightsNeoForge {
@@ -46,8 +45,6 @@ public class RyoamicLightsNeoForge {
             modEventBus.addListener(EventPriority.HIGHEST, RegisterClientReloadListenersEvent.class, event -> {
                 event.registerReloadListener((SynchronousResourceReloader) ItemLightSources::load);
             });
-
-            NeoForge.EVENT_BUS.post(new DynamicLightsInitializerEvent());
         }
     }
 }
