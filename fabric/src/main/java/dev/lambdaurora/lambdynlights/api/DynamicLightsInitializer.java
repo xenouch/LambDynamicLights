@@ -20,7 +20,6 @@ import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
 /**
  * Represents the entrypoint for LDL API.
  *
- * @deprecated please use {@link org.thinkingstudio.ryoamiclights.fabric.api.DynamicLightsInitializer}
  * @author LambdAurora
  * @version 1.3.2
  * @since 1.3.2
