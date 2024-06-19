@@ -1,2 +1,2 @@
 ## Changelog
-- remove entrypoint
+- update to 1.21

@@ -10,6 +10,7 @@
 
 package org.thinkingstudio.ryoamiclights.fabric.mixin;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
 import net.minecraft.client.gui.screen.option.VideoOptionsScreen;
@@ -25,7 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.thinkingstudio.ryoamiclights.gui.DynamicLightsOptionsOption;
 
 @Mixin(VideoOptionsScreen.class)
-public class VideoOptionsScreenMixin extends GameOptionsScreen {
+public abstract class VideoOptionsScreenMixin extends GameOptionsScreen {
 	@Unique
 	private SimpleOption<?> ryoamiclights$option;
 
@@ -34,12 +35,12 @@ public class VideoOptionsScreenMixin extends GameOptionsScreen {
 	}
 
 	@Inject(method = "<init>", at = @At("TAIL"))
-	private void onConstruct(Screen parent, GameOptions gameOptions, CallbackInfo ci) {
+	private void onConstruct(Screen parent, MinecraftClient client, GameOptions gameOptions, CallbackInfo ci) {
 		this.ryoamiclights$option = DynamicLightsOptionsOption.getOption(this);
 	}
 
 	@ModifyArg(
-			method = "init",
+			method = "addOptions",
 			at = @At(
 					value = "INVOKE",
 					target = "Lnet/minecraft/client/gui/widget/OptionListWidget;addAll([Lnet/minecraft/client/option/SimpleOption;)V"
@@ -52,9 +53,4 @@ public class VideoOptionsScreenMixin extends GameOptionsScreen {
 		options[options.length - 1] = this.ryoamiclights$option;
 		return options;
 	}
-
-//	@Inject(method = "render", at = @At("TAIL"))
-//	private void onRender(GuiGraphics graphics, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-//		Tooltip.renderAll(graphics);
-//	}
 }

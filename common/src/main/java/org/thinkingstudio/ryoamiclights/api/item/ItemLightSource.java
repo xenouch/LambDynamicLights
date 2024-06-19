@@ -97,7 +97,7 @@ public abstract class ItemLightSource {
 			return Optional.empty();
 		}
 
-		var affectId = new Identifier(json.get("item").getAsString());
+		var affectId = Identifier.of(json.get("item").getAsString());
 		var item = Registries.ITEM.get(affectId);
 
 		if (item == Items.AIR)

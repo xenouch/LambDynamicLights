@@ -12,6 +12,7 @@ package org.thinkingstudio.ryoamiclights.neoforge;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.resource.SynchronousResourceReloader;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
@@ -25,7 +26,7 @@ import net.neoforged.fml.common.Mod;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
 import org.thinkingstudio.ryoamiclights.gui.SettingsScreen;
 
-@Mod(RyoamicLights.NAMESPACE)
+@Mod(value = RyoamicLights.NAMESPACE, dist = Dist.CLIENT)
 public class RyoamicLightsNeoForge {
     public RyoamicLightsNeoForge(IEventBus modEventBus) {
         IEventBus forgeEventBus = NeoForge.EVENT_BUS;

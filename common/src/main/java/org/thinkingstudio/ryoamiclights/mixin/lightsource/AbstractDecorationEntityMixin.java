@@ -10,6 +10,7 @@
 
 package org.thinkingstudio.ryoamiclights.mixin.lightsource;
 
+import net.minecraft.entity.decoration.BlockAttachedEntity;
 import org.thinkingstudio.ryoamiclights.DynamicLightSource;
 import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import org.thinkingstudio.ryoamiclights.api.DynamicLightHandlers;
@@ -28,19 +29,19 @@ public abstract class AbstractDecorationEntityMixin extends Entity implements Dy
 		super(type, world);
 	}
 
-	@Inject(method = "tick", at = @At("TAIL"))
-	private void onTick(CallbackInfo ci) {
-		// We do not want to update the entity on the server.
-		if (this.getWorld().isClient()) {
-			if (this.isRemoved()) {
-				this.ryoamicLights$setDynamicLightEnabled(false);
-			} else {
-				if (!RyoamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
-					this.ryoamicLights$resetDynamicLight();
-				else
-					this.ryoamicLights$dynamicLightTick();
-				RyoamicLights.updateTracking(this);
-			}
-		}
-	}
+//	@Inject(method = "tick", at = @At("TAIL"))
+//	private void onTick(CallbackInfo ci) {
+//		// We do not want to update the entity on the server.
+//		if (this.getWorld().isClient()) {
+//			if (this.isRemoved()) {
+//				this.ryoamicLights$setDynamicLightEnabled(false);
+//			} else {
+//				if (!RyoamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
+//					this.ryoamicLights$resetDynamicLight();
+//				else
+//					this.ryoamicLights$dynamicLightTick();
+//				RyoamicLights.updateTracking(this);
+//			}
+//		}
+//	}
 }
