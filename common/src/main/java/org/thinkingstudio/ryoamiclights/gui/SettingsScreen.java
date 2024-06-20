@@ -144,10 +144,10 @@ public class SettingsScreen extends SpruceScreen {
 						0xc0101010, 0xd0101010);
 			} else {
 				var bg = (TransparentBackground) TransparentBackground.NORMAL;
-				RenderUtil.renderDirtBackgroundTexture(widget.getX(), widget.getY(),
+				RenderUtil.renderTransparentBackgroundTexture(widget.getX(), widget.getY(),
 						widget.getWidth(), innerWidget.getY() - widget.getY(),
 						vOffset / 32.f, bg.red(), bg.green(), bg.blue(), bg.alpha());
-				RenderUtil.renderDirtBackgroundTexture(widget.getX(), innerWidget.getY() + innerWidget.getHeight(),
+				RenderUtil.renderTransparentBackgroundTexture(widget.getX(), innerWidget.getY() + innerWidget.getHeight(),
 						widget.getWidth(), widget.getHeight() - (innerWidget.getY() + innerWidget.getHeight()),
 						vOffset / 32.f, bg.red(), bg.green(), bg.blue(), bg.alpha());
 			}
