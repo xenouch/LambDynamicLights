@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class TerrainRenderContextMixin extends AbstractBlockRenderContext {
 	@Dynamic
 	@ModifyExpressionValue(method = "bufferQuad", at = @At(value = "INVOKE", target = "Llink/infra/indium/renderer/mesh/MutableQuadViewImpl;lightmap(I)I"), require = 0)
-	private int ryoamiclights$getLightmap(BlockPos pos, int original) {
+	private int ryoamiclights$getLightmap(int original) {
 		return RyoamicLights.get().getLightmapWithDynamicLight(this.blockInfo.blockPos, original);
 	}
 }
