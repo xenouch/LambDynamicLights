@@ -11,7 +11,6 @@
 package org.thinkingstudio.ryoamiclights.fabric.mixin.indium;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import net.minecraft.util.math.BlockPos;
 import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import link.infra.indium.renderer.render.AbstractBlockRenderContext;
 import link.infra.indium.renderer.render.TerrainRenderContext;
