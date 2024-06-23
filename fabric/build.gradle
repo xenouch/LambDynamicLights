@@ -21,7 +21,6 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modImplementation "maven.modrinth:obsidianui:${rootProject.obsidianui_version}-fabric"
-    modImplementation "maven.modrinth:sodium:${project.sodium_version}"
     modImplementation "maven.modrinth:indium:${project.indium_version}"
 
     modCompileOnly("com.terraformersmc:modmenu:${rootProject.mod_menu_version}") { transitive false }

@@ -1,2 +1,3 @@
 ## Changelog
-- update to 1.21
+- update dependencies
+- (Fabric) fix Indium incompatibility (#31)
