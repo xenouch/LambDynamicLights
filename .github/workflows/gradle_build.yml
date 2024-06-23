@@ -28,7 +28,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Artifact
+          name: Artifacts
           path: | 
               ${{ github.workspace }}/neoforge/build/libs
               ${{ github.workspace }}/fabric/build/libs
