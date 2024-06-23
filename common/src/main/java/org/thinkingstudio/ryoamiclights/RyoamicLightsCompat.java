@@ -46,6 +46,15 @@ public final class RyoamicLightsCompat {
 	}
 
 	/**
+	 * Returns whether Indium is installed.
+	 *
+	 * @return {@code true} if Indium is installed, else {@code false}
+	 */
+	public static boolean isIndiumInstalled() {
+		return ModPlatform.isModLoaded("indium");
+	}
+
+	/**
 	 * Returns whether Fabric API or Forgified Fabric API is installed.
 	 *
 	 * @return {@code true} if Fabric API or Forgified Fabric API is installed, else {@code false}
