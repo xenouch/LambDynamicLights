@@ -23,6 +23,7 @@ import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
+import org.thinkingstudio.ryoamiclights.pride.PrideLoader;
 
 public class RyoamicLightsFabric implements ClientModInitializer {
     @Override
@@ -42,6 +43,17 @@ public class RyoamicLightsFabric implements ClientModInitializer {
             @Override
             public void reload(ResourceManager manager) {
                 ItemLightSources.load(manager);
+            }
+        });
+        ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SimpleSynchronousResourceReloadListener() {
+            @Override
+            public Identifier getFabricId() {
+                return Identifier.of("pride", "pridelib");
+            }
+
+            @Override
+            public void reload(ResourceManager manager) {
+                PrideLoader.loadAndApply(manager);
             }
         });
 

@@ -36,6 +36,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.jetbrains.annotations.Nullable;
+import org.thinkingstudio.ryoamiclights.pride.RandomPrideFlagBackground;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -108,7 +109,7 @@ public class SettingsScreen extends SpruceScreen {
 		var dynamicLightSources = Text.translatable(DYNAMIC_LIGHT_SOURCES_KEY);
 
 		this.tabbedWidget = new SpruceTabbedWidget(Position.origin(), this.width, this.height, null, Math.max(100, this.width / 8), 0);
-		this.tabbedWidget.getList().setBackground(TransparentBackground.DARKENED);
+		this.tabbedWidget.getList().setBackground(RandomPrideFlagBackground.random());
 		this.tabbedWidget.addTabEntry(Text.translatable("ryoamiclights.menu.tabs.general"), null,
 				this.tabContainerBuilder(this::buildGeneralTab));
 		this.tabbedWidget.addSeparatorEntry(null);

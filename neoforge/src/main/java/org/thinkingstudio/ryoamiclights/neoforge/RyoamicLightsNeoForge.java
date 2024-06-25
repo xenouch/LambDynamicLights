@@ -11,7 +11,10 @@
 package org.thinkingstudio.ryoamiclights.neoforge;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.resource.SinglePreparationResourceReloader;
 import net.minecraft.resource.SynchronousResourceReloader;
+import net.minecraft.util.profiler.Profiler;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
@@ -25,6 +28,11 @@ import org.thinkingstudio.ryoamiclights.RyoamicLights;
 import net.neoforged.fml.common.Mod;
 import org.thinkingstudio.ryoamiclights.api.item.ItemLightSources;
 import org.thinkingstudio.ryoamiclights.gui.SettingsScreen;
+import org.thinkingstudio.ryoamiclights.pride.PrideFlag;
+import org.thinkingstudio.ryoamiclights.pride.PrideFlags;
+import org.thinkingstudio.ryoamiclights.pride.PrideLoader;
+
+import java.util.List;
 
 @Mod(value = RyoamicLights.NAMESPACE, dist = Dist.CLIENT)
 public class RyoamicLightsNeoForge {
@@ -45,6 +53,17 @@ public class RyoamicLightsNeoForge {
             });
             modEventBus.addListener(EventPriority.HIGHEST, RegisterClientReloadListenersEvent.class, event -> {
                 event.registerReloadListener((SynchronousResourceReloader) ItemLightSources::load);
+                event.registerReloadListener(new SinglePreparationResourceReloader<List<PrideFlag>>() {
+                    @Override
+                    protected List<PrideFlag> prepare(ResourceManager manager, Profiler profiler) {
+                        return PrideLoader.loadFlags(manager);
+                    }
+
+                    @Override
+                    protected void apply(List<PrideFlag> flags, ResourceManager manager, Profiler profiler) {
+                        PrideFlags.setFlags(flags);
+                    }
+                });
             });
         }
     }
